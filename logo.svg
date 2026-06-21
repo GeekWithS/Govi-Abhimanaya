@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Left Green Leaf -->
+  <path d="M 250,380 C 200,320 120,280 95,205 C 130,205 210,250 250,340 Z" fill="#75C043" stroke="#000000" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+  
+  <!-- Right Green Leaf -->
+  <path d="M 250,380 C 300,320 380,280 405,205 C 370,205 290,250 250,340 Z" fill="#75C043" stroke="#000000" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+  
+  <!-- Stem -->
+  <line x1="250" y1="100" x2="250" y2="440" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Grains (Alternating pairs along the stem) -->
+  <!-- Pair 1 (Top single grain) -->
+  <path d="M 250,75 C 235,95 235,120 250,140 C 265,120 265,95 250,75 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+  
+  <!-- Pair 2 (Left & Right) -->
+  <path d="M 250,115 C 220,115 200,145 215,170 C 235,160 245,140 250,115 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M 250,115 C 280,115 300,145 285,170 C 265,160 255,140 250,115 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+  
+  <!-- Pair 3 (Left & Right) -->
+  <path d="M 250,160 C 220,160 200,190 215,215 C 235,205 245,185 250,160 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M 250,160 C 280,160 300,190 285,215 C 265,205 255,185 250,160 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+  
+  <!-- Pair 4 (Left & Right) -->
+  <path d="M 250,205 C 220,205 200,235 215,260 C 235,250 245,230 250,205 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M 250,205 C 280,205 300,235 285,260 C 265,250 255,230 250,205 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+  
+  <!-- Pair 5 (Left & Right) -->
+  <path d="M 250,250 C 220,250 200,280 215,305 C 235,295 245,275 250,250 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M 250,250 C 280,250 300,280 285,305 C 265,295 255,275 250,250 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+  
+  <!-- Pair 6 (Left & Right) -->
+  <path d="M 250,295 C 220,295 200,325 215,350 C 235,340 245,320 250,295 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M 250,295 C 280,295 300,325 285,350 C 265,340 255,320 250,295 Z" fill="#FDB813" stroke="#000000" stroke-width="10" stroke-linejoin="round"/>
+</svg>

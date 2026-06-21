@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+  <title>Govi Abhimanaya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <a class="logo-area" href="#home" aria-label="Govi Abhimanaya">
+        <div class="logo-wrapper">
+          <i class="fa-solid fa-seedling logo-brand-icon"></i>
+        </div>
+        <div class="logo-text">
+          <h1 id="txt-logo-title" data-i18n="logoTitle">Govi Abhimanaya</h1>
+          <span id="txt-logo-sub" data-i18n="logoSub">Smart Agriculture Platform in Sri Lanka</span>
+        </div>
+      </a>
+
+      <nav class="nav-bar" aria-label="Main navigation">
+        <a href="#home" class="nav-link active" data-tab="home" id="nav-home"><i class="fa-solid fa-house"></i> <span data-i18n="navHome">Home</span></a>
+        <a href="#weather" class="nav-link" data-tab="weather" id="nav-weather"><i class="fa-solid fa-cloud-sun"></i> <span data-i18n="navWeather">Weather</span></a>
+        <a href="#prices" class="nav-link" data-tab="prices" id="nav-prices"><i class="fa-solid fa-coins"></i> <span data-i18n="navPrices">Market Prices</span></a>
+        <a href="#utilities" class="nav-link" data-tab="utilities" id="nav-utilities"><i class="fa-solid fa-screwdriver-wrench"></i> <span data-i18n="navUtilities">Farm Tools</span></a>
+        <a href="#ai-helper" class="nav-link" data-tab="ai-helper" id="nav-ai"><i class="fa-solid fa-robot"></i> <span data-i18n="navAI">Govi AI</span></a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:1920" class="hotline-btn">
+          <i class="fa-solid fa-phone-volume"></i> <span id="txt-hotline" data-i18n="hotline">1920 Hotline</span>
+        </a>
+        <div class="lang-toggle" aria-label="Language switcher">
+          <button class="lang-btn active" onclick="setLanguage('en')" aria-label="English">EN</button>
+          <button class="lang-btn" onclick="setLanguage('si')" aria-label="Sinhala">සිං</button>
+          <button class="lang-btn" onclick="setLanguage('ta')" aria-label="Tamil">த</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="status-bar">
+    <div class="status-container">
+      <div class="status-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span id="lbl-status-region" data-i18n="statusRegion">Region:</span>
+        <strong id="current-location">Colombo</strong>
+      </div>
+      <div class="status-item">
+        <i class="fa-solid fa-calendar-day"></i>
+        <span id="current-date">...</span>
+      </div>
+      <div class="status-item">
+        <i class="fa-solid fa-cloud"></i>
+        <span id="lbl-status-weather" data-i18n="statusWeather">Weather:</span>
+        <strong id="current-summary-temp">...</strong>
+      </div>
+    </div>
+  </div>
+
+  <main class="main-content">
+
+    <section id="tab-home" class="tab-pane active">
+      <div class="hero-shell">
+        <div class="welcome-banner">
+          <div class="welcome-content">
+            <span class="eyebrow" data-i18n="heroEyebrow">Digital farming hub</span>
+            <h2 id="txt-welcome-title" data-i18n="welcomeTitle">Welcome, Mr. Farmer! 🌾</h2>
+            <p id="txt-welcome-desc" data-i18n="welcomeDesc">One dashboard for weather, market prices, field planning, and expert guidance.</p>
+            <div class="welcome-buttons">
+              <button class="btn btn-primary" onclick="switchTab('ai-helper')" id="btn-welcome-ai"><i class="fa-solid fa-comments"></i> <span data-i18n="buttonAskAI">Consult AI Assistant</span></button>
+              <button class="btn btn-secondary" onclick="switchTab('prices')" id="btn-welcome-prices"><i class="fa-solid fa-chart-line"></i> <span data-i18n="buttonViewPrices">View Price Index</span></button>
+            </div>
+          </div>
+          <div class="welcome-stats">
+            <div class="mini-stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+              <div class="stat-info">
+                <h3 id="txt-stat-crop1" data-i18n="statCrop1">Samba Paddy (Grade A)</h3>
+                <p id="stat-crop1-value">LKR 198.00 / kg</p>
+                <span class="trend trend-stable" id="txt-trend-stable" data-i18n="trendStable">Stable</span>
+              </div>
+            </div>
+            <div class="mini-stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-carrot"></i></div>
+              <div class="stat-info">
+                <h3 id="txt-stat-crop2" data-i18n="statCrop2">Carrots (Dambulla)</h3>
+                <p id="stat-crop2-value">LKR 290.00 / kg</p>
+                <span class="trend trend-up"><i class="fa-solid fa-arrow-trend-up"></i> <span id="txt-trend-up">+9.4%</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="card weather-widget">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-cloud-sun"></i> <span id="title-home-weather" data-i18n="homeWeatherTitle">Today's Forecast</span></h3>
+              <button class="card-action-btn" onclick="switchTab('weather')" id="btn-home-weather-more"><span data-i18n="homeWeatherMore">Full Report</span> <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="weather-brief">
+              <div class="brief-main">
+                <div class="weather-large-icon" id="home-weather-icon">
+                  <i class="fa-solid fa-cloud-sun"></i>
+                </div>
+                <div class="brief-temp">
+                  <span class="temp-val" id="home-temp">32°C</span>
+                  <span class="temp-cond" id="home-condition">Partly Cloudy</span>
+                </div>
+              </div>
+              <div class="brief-details">
+                <div class="detail-row"><span id="lbl-home-hum" data-i18n="humidityLabel">Humidity:</span><strong id="home-humidity">65%</strong></div>
+                <div class="detail-row"><span id="lbl-home-wind" data-i18n="windLabel">Wind Speed:</span><strong id="home-wind">12 km/h</strong></div>
+                <div class="detail-row"><span id="lbl-home-rain" data-i18n="rainLabel">Rainfall:</span><strong id="home-rainfall">0.0 mm</strong></div>
+              </div>
+            </div>
+            <div class="weather-advice-box">
+              <h4><i class="fa-solid fa-circle-info"></i> <span id="lbl-home-advice-title" data-i18n="homeAdviceTitle">Cultivation Advisory</span></h4>
+              <p id="home-weather-advice">...</p>
+            </div>
+          </div>
+
+          <div class="card ai-mini-widget">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-robot"></i> <span id="title-home-ai" data-i18n="homeAITitle">Ask Govi AI</span></h3>
+              <span class="badge badge-online" id="lbl-badge-online" data-i18n="onlineBadge">Online</span>
+            </div>
+            <p id="txt-home-ai-desc" data-i18n="homeAIDesc">Get instant verified advice on crop diseases, pest control, fertilizer ratios, and water scheduling.</p>
+            <div class="quick-queries">
+              <button class="quick-query-pill" onclick="askQuickQuery('How to treat Rice Blast disease?')" id="pill-q1" data-i18n="pillQ1">Rice Blast Control</button>
+              <button class="quick-query-pill" onclick="askQuickQuery('Sena caterpillar control measures?')" id="pill-q2" data-i18n="pillQ2">Sena Caterpillar</button>
+              <button class="quick-query-pill" onclick="askQuickQuery('Best fertilizer for paddy?')" id="pill-q3" data-i18n="pillQ3">Paddy Fertilizer</button>
+            </div>
+            <div class="ai-mini-input-box">
+              <input type="text" id="ai-mini-input" data-i18n-placeholder="miniChatPlaceholder" placeholder="Type crop question (e.g. Tomato leaf rot)..." />
+              <button onclick="submitMiniChat()" aria-label="Send">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+            <div class="mini-signal-strip">
+              <span><i class="fa-solid fa-shield-heart"></i> <span data-i18n="miniSignalOne">Safe, local, and practical advice</span></span>
+              <span><i class="fa-solid fa-language"></i> <span data-i18n="miniSignalTwo">English • Sinhala • Tamil</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-weather" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h2 id="title-w-center" data-i18n="weatherCenterTitle">Weather Center 🌦️</h2>
+          <p id="txt-w-center-sub" data-i18n="weatherCenterSub">Precision agricultural meteorological services for agro-ecological zones</p>
+        </div>
+        <div class="district-selector-container">
+          <label for="district-select" id="lbl-w-select" data-i18n="weatherSelectLabel"><i class="fa-solid fa-map-location-dot"></i> Select Farm Zone:</label>
+          <select id="district-select" class="form-control" onchange="fetchWeather(this.value)">
+            <option value="anuradhapura">Anuradhapura</option>
+            <option value="polonnaruwa">Polonnaruwa</option>
+            <option value="nuwaraeliya">Nuwara Eliya</option>
+            <option value="kurunegala">Kurunegala</option>
+            <option value="jaffna">Jaffna</option>
+            <option value="badulla">Badulla</option>
+            <option value="colombo">Colombo</option>
+            <option value="gampaha">Gampaha</option>
+            <option value="kalutara">Kalutara</option>
+            <option value="kandy">Kandy</option>
+            <option value="matale">Matale</option>
+            <option value="galle">Galle</option>
+            <option value="matara">Matara</option>
+            <option value="kilinochchi">Kilinochchi</option>
+            <option value="mannar">Mannar</option>
+            <option value="vavuniya">Vavuniya</option>
+            <option value="mullativu">Mullativu</option>
+            <option value="trincomalee">Trincomalee</option>
+            <option value="batticaloa">Batticaloa</option>
+            <option value="ampara">Ampara</option>
+            <option value="puttalam">Puttalam</option>
+            <option value="badulla">Badulla</option>
+            <option value="monaragala">Monaragala</option>
+            <option value="ratnapura">Ratnapura</option>
+            <option value="kegalle">Kegalle</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="weather-dashboard">
+        <div class="weather-main-card">
+          <div class="weather-main-info">
+            <div class="weather-main-left">
+              <h3 id="w-district-name">Anuradhapura</h3>
+              <p id="w-district-zone">North Central Province</p>
+              <div class="w-main-temp-block">
+                <span class="w-temp" id="w-temp">32°C</span>
+                <span class="w-condition" id="w-condition">Partly Cloudy</span>
+              </div>
+            </div>
+            <div class="weather-main-right" id="w-large-icon">
+              <i class="fa-solid fa-cloud-sun"></i>
+            </div>
+          </div>
+
+          <div class="weather-stats-grid">
+            <div class="w-stat-item"><i class="fa-solid fa-droplet"></i><span id="lbl-w-hum" data-i18n="humidityLabel">Humidity</span><strong id="w-humidity">65%</strong></div>
+            <div class="w-stat-item"><i class="fa-solid fa-wind"></i><span id="lbl-w-wind" data-i18n="windLabel">Wind Speed</span><strong id="w-wind">12 km/h</strong></div>
+            <div class="w-stat-item"><i class="fa-solid fa-cloud-showers-water"></i><span id="lbl-w-rain" data-i18n="rainLabel">Rainfall</span><strong id="w-rainfall">0.0 mm</strong></div>
+            <div class="w-stat-item"><i class="fa-solid fa-sun"></i><span id="lbl-w-uv" data-i18n="uvLabel">UV Index</span><strong id="w-uv">9</strong></div>
+          </div>
+        </div>
+
+        <div class="card weather-agri-advice-card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-leaf"></i> <span id="title-w-advisory" data-i18n="weatherAdvisoryTitle">Agro-Meteorological Advisory</span></h3>
+          </div>
+          <div class="advice-content">
+            <p id="w-agri-advice">...</p>
+            <div class="agri-tips">
+              <h5 id="title-w-tips" data-i18n="weatherTipsTitle">💡 Pro Farming Guidelines for Current Conditions:</h5>
+              <ul id="w-dynamic-tips"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="forecast-section">
+        <h3><i class="fa-solid fa-calendar-week"></i> <span id="title-w-forecast" data-i18n="forecastTitle">7-Day Agricultural Forecast</span></h3>
+        <div class="forecast-grid" id="forecast-grid"></div>
+      </div>
+    </section>
+
+    <section id="tab-prices" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h2 id="title-p-index" data-i18n="marketTitle">Market Price Index 🪙</h2>
+          <p id="txt-p-index-sub" data-i18n="marketSub">Live wholesale trade values monitored across major national economic centers</p>
+        </div>
+        <div class="search-filter-container">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="price-search" data-i18n-placeholder="priceSearchPlaceholder" placeholder="Search crops..." oninput="fetchPrices()">
+          </div>
+          <div class="select-box">
+            <select id="price-sort" class="form-control" onchange="fetchPrices()">
+              <option value="default" data-i18n="sortDefault">Sort: Default</option>
+              <option value="price-asc" data-i18n="sortPriceAsc">Price: Low to High</option>
+              <option value="price-desc" data-i18n="sortPriceDesc">Price: High to Low</option>
+              <option value="trend" data-i18n="sortTrend">Trend Priority</option>
+            </select>
+          </div>
+          <div class="price-categories">
+            <button class="category-btn active" data-category="all" onclick="filterCategory('all')" id="btn-cat-all" data-i18n="allCrops">All Crops</button>
+            <button class="category-btn" data-category="grains" onclick="filterCategory('grains')" id="btn-cat-grains" data-i18n="grainsCategory">Grains / Paddy</button>
+            <button class="category-btn" data-category="vegetables" onclick="filterCategory('vegetables')" id="btn-cat-vegetables" data-i18n="vegetablesCategory">Vegetables</button>
+            <button class="category-btn" data-category="fruits" onclick="filterCategory('fruits')" id="btn-cat-fruits" data-i18n="fruitsCategory">Fruits</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card price-table-card">
+        <div class="table-responsive">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th id="th-crop" data-i18n="tableCrop">Crop</th>
+                <th id="th-cat" data-i18n="tableCategory">Category</th>
+                <th id="th-price" data-i18n="tablePrice">Wholesale Price</th>
+                <th id="th-unit" data-i18n="tableUnit">Unit</th>
+                <th id="th-diff" data-i18n="tableChange">Net Change</th>
+                <th id="th-trend" data-i18n="tableTrend">Market Trend</th>
+                <th id="th-hub" data-i18n="tableHub">Economic Hub</th>
+              </tr>
+            </thead>
+            <tbody id="price-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-utilities" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h2 id="title-ut-center" data-i18n="utilityTitle">Essential Agricultural Utilities 🛠️</h2>
+          <p id="txt-ut-sub" data-i18n="utilitySub">Operational tools for field management, calculators, and national structural trackers</p>
+        </div>
+      </div>
+
+      <div class="utilities-grid">
+        <div class="card utility-card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-calculator"></i> <span id="title-calc" data-i18n="calcTitle">Subsidy & Fertilizer Calculator</span></h3>
+          </div>
+          <p id="txt-calc-desc" class="util-desc" data-i18n="calcDesc">Calculate fertilizer boundaries according to common crop standards and farm size.</p>
+          <div class="calculator-inputs">
+            <div class="input-group">
+              <label for="calc-crop-type" id="lbl-calc-crop" data-i18n="calcCropLabel">Crop Standard:</label>
+              <select id="calc-crop-type" class="form-control">
+                <option value="paddy-nadu" data-i18n="optNadu">Paddy (Nadu/Samba)</option>
+                <option value="paddy-keeri" data-i18n="optKeeri">Paddy (Keeri Samba)</option>
+                <option value="maize" data-i18n="optMaize">Maize / Corn</option>
+                <option value="vegetables-up" data-i18n="optVegUp">Upcountry Vegetables</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="calc-acreage" id="lbl-calc-acres" data-i18n="calcAcresLabel">Total Farmland Size (Acres):</label>
+              <input type="number" id="calc-acreage" class="form-control" value="1" min="0.25" step="0.25">
+            </div>
+            <button class="btn btn-primary w-100" onclick="calculateFertilizer()" id="btn-calc-trigger"><i class="fa-solid fa-gears"></i> <span data-i18n="calcButton">Generate Allocation</span></button>
+          </div>
+          <div class="calculator-results" id="calc-results" style="display:none;">
+            <h4 id="title-calc-output" data-i18n="calcOutputTitle">Recommended Maximum Dosage Limits:</h4>
+            <div class="results-grid">
+              <div class="result-pill"><span data-i18n="resultUrea">Urea (Nitrogen):</span> <strong id="res-urea">0 kg</strong></div>
+              <div class="result-pill"><span data-i18n="resultTsp">TSP (Phosphorus):</span> <strong id="res-tsp">0 kg</strong></div>
+              <div class="result-pill"><span data-i18n="resultMop">MOP (Potassium):</span> <strong id="res-mop">0 kg</strong></div>
+              <div class="result-pill"><span data-i18n="resultCompost">Organic Compost:</span> <strong id="res-compost">0 kg</strong></div>
+            </div>
+            <p class="calc-note" id="calc-note">...</p>
+          </div>
+        </div>
+
+        <div class="card utility-card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-droplet"></i> <span id="title-irrigation" data-i18n="irrigationTitle">Irrigation Planner</span></h3>
+          </div>
+          <p id="txt-irrigation-desc" class="util-desc" data-i18n="irrigationDesc">Use rainfall, humidity, and crop needs to plan a simple water schedule.</p>
+          <div class="calculator-inputs">
+            <div class="input-group">
+              <label for="irrigation-crop-type" data-i18n="irrigationCropLabel">Crop Type:</label>
+              <select id="irrigation-crop-type" class="form-control">
+                <option value="paddy">Paddy</option>
+                <option value="vegetables">Vegetables</option>
+                <option value="fruits">Fruit Crops</option>
+                <option value="tea">Tea / Upcountry</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="irrigation-area" data-i18n="irrigationAreaLabel">Farm Size (Acres):</label>
+              <input type="number" id="irrigation-area" class="form-control" value="1" min="0.25" step="0.25">
+            </div>
+            <button class="btn btn-secondary w-100" onclick="calculateIrrigation()" id="btn-irrigation-trigger"><i class="fa-solid fa-water"></i> <span data-i18n="irrigationButton">Plan Irrigation</span></button>
+          </div>
+          <div class="utility-output" id="irrigation-result">
+            <p data-i18n="irrigationHint">Your irrigation plan will appear here after calculation.</p>
+          </div>
+        </div>
+
+        <div class="card utility-card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-calendar-check"></i> <span id="title-calendar" data-i18n="calendarTitle">National Cultivation Timelines</span></h3>
+          </div>
+          <p id="txt-cal-desc" class="util-desc" data-i18n="calendarDesc">Follow the Maha and Yala seasonal timeline to better time land preparation and sowing.</p>
+          <div class="calendar-toggle-buttons">
+            <button class="btn btn-secondary active" id="btn-season-maha" data-i18n="seasonMaha" onclick="toggleSeason('maha')">Maha Season</button>
+            <button class="btn btn-secondary" id="btn-season-yala" data-i18n="seasonYala" onclick="toggleSeason('yala')">Yala Season</button>
+          </div>
+          <div class="season-timeline" id="season-timeline-content"></div>
+        </div>
+
+        <div class="card utility-card full-width-card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-water"></i> <span id="title-reservoirs" data-i18n="reservoirTitle">Strategic Major Reservoirs Storage Monitor</span></h3>
+            <span class="badge badge-online" id="lbl-badge-res" data-i18n="liveFeed">Live Feed</span>
+          </div>
+          <p id="txt-res-desc" class="util-desc" data-i18n="reservoirDesc">Track water storage levels to make informed irrigation decisions.</p>
+          <div class="reservoirs-grid" id="reservoirs-grid"></div>
+        </div>
+
+        <div class="card utility-card full-width-card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-list-check"></i> <span id="title-tasks" data-i18n="tasksTitle">Farm Action Planner</span></h3>
+          </div>
+          <p id="txt-tasks-desc" class="util-desc" data-i18n="tasksDesc">Save your daily work list, field checks, and reminders on this device.</p>
+          <div class="task-builder">
+            <input type="text" id="task-input" data-i18n-placeholder="taskPlaceholder" placeholder="Add a task for today..." />
+            <button class="btn btn-primary" onclick="addTask()" id="btn-task-add"><span data-i18n="taskAdd">Add</span></button>
+          </div>
+          <ul class="task-list" id="task-list"></ul>
+        </div>
+
+        <div class="card utility-card full-width-card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-bug"></i> <span id="title-pest" data-i18n="pestTitle">Pest & Disease Watch</span></h3>
+          </div>
+          <p id="txt-pest-desc" class="util-desc" data-i18n="pestDesc">See likely risks for the current weather and district.</p>
+          <div id="pest-alert-list" class="alert-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-ai-helper" class="tab-pane">
+      <div class="ai-container">
+        <div class="ai-sidebar">
+          <div class="ai-sidebar-profile">
+            <div class="ai-avatar">
+              <i class="fa-solid fa-leaf avatar-leaf"></i>
+              <span class="active-dot"></span>
+            </div>
+            <h3 id="ai-sidebar-title" data-i18n="aiSidebarTitle">Govi Sahaya AI</h3>
+            <p id="ai-sidebar-sub" data-i18n="aiSidebarSub">AI Powered Agriculture Advisor</p>
+            <span class="badge badge-online" id="lbl-ai-status" data-i18n="aiStatus">Ready to help</span>
+          </div>
+          <div class="ai-instructions">
+            <h4 id="title-ai-use" data-i18n="aiUseTitle">Operational Parameters:</h4>
+            <p id="txt-ai-use-desc" data-i18n="aiUseDesc">Ask in English, Sinhala, or Tamil. The assistant gives practical farm guidance.</p>
+            <div class="suggested-questions-box">
+              <h5 id="title-ai-suggest" data-i18n="aiSuggestTitle">Suggested Questions:</h5>
+              <ul>
+                <li onclick="useSuggestedQuery('How to treat rice blast disease?')" id="sug-q1" data-i18n="suggestQ1">Rice Blast control</li>
+                <li onclick="useSuggestedQuery('How can I control sena caterpillar?')" id="sug-q2" data-i18n="suggestQ2">Sena caterpillar control</li>
+                <li onclick="useSuggestedQuery('What fertilizer schedule should I use for paddy?')" id="sug-q3" data-i18n="suggestQ3">Paddy fertilizer schedule</li>
+                <li onclick="useSuggestedQuery('Best soil preparation for carrots?')" id="sug-q4" data-i18n="suggestQ4">Vegetable soil preparation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-chat-area">
+          <div class="chat-header">
+            <div class="chat-title">
+              <h4 id="chat-header-main" data-i18n="chatHeaderTitle">Active Session: Govi Sahaya AI</h4>
+              <span id="chat-header-sub" data-i18n="chatHeaderSub">Friendly support for everyday farming questions</span>
+            </div>
+            <button class="btn btn-outline-danger btn-sm" onclick="clearChat()" id="btn-clear-chat"><i class="fa-solid fa-trash-can"></i> <span data-i18n="clearChat">Clear Chat</span></button>
+          </div>
+
+          <div class="chat-messages-container" id="chat-messages">
+            <div class="message incoming" id="chat-welcome-msg">
+              <div class="message-avatar"><i class="fa-solid fa-leaf"></i></div>
+              <div class="message-bubble">
+                <p data-i18n="chatWelcome">Hello! Ask me about crops, pests, fertilizer, irrigation, or weather-based advice.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-input-area">
+            <textarea id="chat-input" rows="1" data-i18n-placeholder="chatPlaceholder" placeholder="Ask a farm question..." onkeydown="handleChatKey(event)"></textarea>
+            <button id="chat-send-btn" class="btn btn-primary" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="sendBtn">Send</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo-area">
+          <i class="fa-solid fa-seedling logo-brand-icon footer-icon"></i>
+          <div class="logo-text">
+            <h4 id="footer-logo-title" data-i18n="footerLogoTitle">Govi Abhimanaya</h4>
+            <span id="footer-logo-sub" data-i18n="footerLogoSub">Smart Agriculture Platform</span>
+          </div>
+        </div>
+        <p id="txt-footer-desc" data-i18n="footerDesc">A premium farming ecosystem designed to support better decisions and stronger harvests.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4 id="footer-title-resources" data-i18n="footerResourcesTitle">Institutional Links</h4>
+        <ul>
+          <li><a href="https://www.doa.gov.lk" target="_blank" rel="noreferrer"><i class="fa-solid fa-building-columns"></i> Department of Agriculture SL</a></li>
+          <li><a href="https://www.meteo.gov.lk" target="_blank" rel="noreferrer"><i class="fa-solid fa-cloud-bolt"></i> Department of Meteorology</a></li>
+          <li><a href="tel:1920"><i class="fa-solid fa-headset"></i> Advisory Hotline: 1920</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-team">
+        <h4>Unknown Team</h4>
+        <p id="txt-footer-hack" data-i18n="footerHack">Built with passion for the Sri Lankan school innovation stage, by<br><strong> Sinura Perera</strong><br><strong> Vihas Kodithuwakku</strong><br><strong> Dulnith Bandara</strong></p>
+        <div class="partner-logos">
+          <span class="partner-badge">Ananda College</span>
+          <span class="partner-badge">Grade 8</span>
+          <span class="partner-badge">Sri Lanka</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p id="txt-footer-copy" data-i18n="footerCopy">&copy; 2026 Govi Abhimanaya. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="server.js"></script>
+</body>
+</html>
